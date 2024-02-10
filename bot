@@ -1,0 +1,14 @@
+import telebot
+from telebot import types
+bot = telebot.TeleBot('6351706954:AAFlJUQyW5hoOOi7KhtLK8uysFKbNAlbCps')
+@bot.message_handler(commands=['start'])
+def start(message):
+    bot.send_message(message.chat.id, 'Hello! Im One hundred n Bot. Im test Bot. I have commands: help, memes')
+
+@bot.message_handler(commands=['help'])
+def help(message):
+    z = types.InlineKeyboardMarkup()
+    button1 = types.InlineKeyboardButton('Important info', url='https://www.youtube.com/watch?v=mrGefJndVhc')
+    button2 = types.InlineKeyboardButton('My TG', url='https://t.me/FATALERROOR')
+    z.row(button1, button2)
+    bot.send_message(message.chat.id, 'watching this it is important', reply_markup=z)
